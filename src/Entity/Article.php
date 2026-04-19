@@ -29,6 +29,9 @@ class Article
     #[ORM\Column]
     private ?bool $publie = null;
 
+    #[ORM\ManyToOne]
+    private ?User $auteurUser = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Article
     public function setPublie(bool $publie): static
     {
         $this->publie = $publie;
+
+        return $this;
+    }
+
+    public function getAuteurUser(): ?User
+    {
+        return $this->auteurUser;
+    }
+
+    public function setAuteurUser(?User $auteurUser): static
+    {
+        $this->auteurUser = $auteurUser;
 
         return $this;
     }
