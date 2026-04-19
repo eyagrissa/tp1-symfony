@@ -33,4 +33,8 @@
 
 {% endfor %}
 
+{% if is_granted('ROLE_USER') %}
+    <a href="{{ path('app_article_nouveau') }}" class="btn btn-primary">➕ Créer un article</a>
+{% endif %}
+
 {% endblock %}
